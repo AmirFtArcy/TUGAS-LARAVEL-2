@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class stuff extends Model
 {
     use HasFactory;
+    
+    protected $table ='stuffs';
+    protected $primarykey='id';
+    protected $keyType='string';
+    protected $fillable=[
+        'id',
+        'name',
+        'price',
+        'unit',
+        'status',
+        'id_category',
+    ];
+
 }
