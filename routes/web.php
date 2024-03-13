@@ -35,13 +35,11 @@ Route::middleware(['is.auth'])->group(function(){
 
     Route::get('logout', [AuthController::Class,'actionlogout']);
         
-    Route::get('transaction', [TransactionController::Class,'index']);
-    Route::get('transaction/add', [TransactionController::Class,'create']);
-
     Route::resource('customers', CustomerController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('users', UserController::class);
     Route::resource('stuffs', StuffController::class);
+    Route::resource('transactions', TransactionController::class);
 
 });
 
