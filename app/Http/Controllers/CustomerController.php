@@ -12,8 +12,11 @@ class CustomerController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+     {
+        $customers = Customer::all();
+        return view('customer.list',[
+            'data' => $customers,
+        ]);
     }
 
     /**
@@ -21,7 +24,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customer.add');
+        
     }
 
     /**
@@ -29,7 +33,10 @@ class CustomerController extends Controller
      */
     public function store(StorecustomerRequest $request)
     {
-        //
+        Customer::create($request->all());
+        return redirect('/customers')->with([
+            'notif'=>'Datamu Sudah Tersimpan Bersama Dengan Kenangannya '
+        ]);
     }
 
     /**
@@ -37,7 +44,9 @@ class CustomerController extends Controller
      */
     public function show(customer $customer)
     {
-        //
+        return view('customer.add',[
+          'data' =>$customer,
+        ]);
     }
 
     /**
@@ -53,7 +62,9 @@ class CustomerController extends Controller
      */
     public function update(UpdatecustomerRequest $request, customer $customer)
     {
-        //
+        $customer->fill($request->all());
+        $customer->save();
+        return redirect('/customers');
     }
 
     /**
@@ -61,6 +72,8 @@ class CustomerController extends Controller
      */
     public function destroy(customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect('/customers');
+       
     }
 }

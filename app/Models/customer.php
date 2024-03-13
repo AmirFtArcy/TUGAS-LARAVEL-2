@@ -9,14 +9,14 @@ class customer extends Model
 {
     use HasFactory;
     
-    protected $table ='cutomers';
+    protected $table ='customers';
     protected $primarykey='id';
-    protected $keyType='integer';
+    protected $keyType='string';
     protected $fillable=[
         'id',
         'name',
         'addres',
-        'addres',
+        'status',
         'gender',
     ];
 }

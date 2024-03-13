@@ -13,23 +13,29 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('kategori.list',[
+            'data'=> $categories,
+        ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+         return view('kategori.add');
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StorecategoryRequest $request)
     {
-        //
+        Category::create($request->all());
+        return redirect('/categories');
     }
 
     /**
@@ -37,7 +43,10 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        //
+        
+        return view('kategori.add',[
+            'data' =>$category,
+        ]);
     }
 
     /**
@@ -53,7 +62,10 @@ class CategoryController extends Controller
      */
     public function update(UpdatecategoryRequest $request, category $category)
     {
-        //
+        
+        $category->fill($request->all());
+        $category->save();
+        return redirect('/categories');
     }
 
     /**
@@ -61,6 +73,8 @@ class CategoryController extends Controller
      */
     public function destroy(category $category)
     {
-        //
+
+        $category->delete();
+        return redirect('/categories');
     }
 }

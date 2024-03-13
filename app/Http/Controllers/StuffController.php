@@ -13,7 +13,12 @@ class StuffController extends Controller
      */
     public function index()
     {
-        //
+       
+        $stuffs = Stuff::with(['category','detail'])->get();
+        return view('barang.list',[
+            'data' => $stuffs,
+        ]);
+        
     }
 
     /**
@@ -21,7 +26,8 @@ class StuffController extends Controller
      */
     public function create()
     {
-        //
+        return view('barang.add');
+        
     }
 
     /**
@@ -29,7 +35,9 @@ class StuffController extends Controller
      */
     public function store(StorestuffRequest $request)
     {
-        //
+        
+        Stuff::create($request->all());
+        return redirect('/stuffs');
     }
 
     /**
@@ -37,7 +45,9 @@ class StuffController extends Controller
      */
     public function show(stuff $stuff)
     {
-        //
+        return view('barang.add',[
+            'data' =>$stuff,
+          ]);
     }
 
     /**
@@ -53,7 +63,10 @@ class StuffController extends Controller
      */
     public function update(UpdatestuffRequest $request, stuff $stuff)
     {
-        //
+        
+        $stuff->fill($request->all());
+        $stuff->save();
+        return redirect('/stuffs');
     }
 
     /**
@@ -61,6 +74,8 @@ class StuffController extends Controller
      */
     public function destroy(stuff $stuff)
     {
-        //
+        
+        $stuff->delete();
+        return redirect('/stuffs');
     }
 }

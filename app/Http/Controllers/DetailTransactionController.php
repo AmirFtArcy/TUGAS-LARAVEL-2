@@ -13,7 +13,7 @@ class DetailTransactionController extends Controller
      */
     public function index()
     {
-        //
+        return view('detail.list');
     }
 
     /**
