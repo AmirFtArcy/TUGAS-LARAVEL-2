@@ -48,6 +48,14 @@
                   <label for="password">Password</label>
                   <input type="text" class="form-control" name="password" placeholder="Password" value="{{@$data->password}}">
                 </div>
+                <div class="form-group">
+                  <label for="level">Level</label>
+                  <select name="level" class="custom-select rounded-0">
+                      <option value="1" {{ @$data->level == 1 ? 'selected' : '' }}>Admin</option>
+                      <option value="0" {{ @$data->level == 1 ? 'selected' : '' }}>Kasir </option>
+                      <option value="0" {{ @$data->level == 1 ? 'selected' : '' }}>Blokir </option>
+                  </select>
+              </div>
                
               </div>
               <div class=" card-footer">

@@ -37,7 +37,9 @@ class StuffController extends Controller
     {
         
         Stuff::create($request->all());
-        return redirect('/stuffs');
+        return redirect('/stuffs')->with([
+            'pes'=>'Data sudah tersimpan',
+        ]);
     }
 
     /**
@@ -66,7 +68,9 @@ class StuffController extends Controller
         
         $stuff->fill($request->all());
         $stuff->save();
-        return redirect('/stuffs');
+        return redirect('/stuffs')->with([
+            'pes'=>'Data sudah tersimpan',
+        ]);
     }
 
     /**
@@ -76,6 +80,8 @@ class StuffController extends Controller
     {
         
         $stuff->delete();
-        return redirect('/stuffs');
+        return redirect('/stuffs')->with([
+            'pes'=>'Data sudah terhapus',
+        ]);
     }
 }

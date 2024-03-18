@@ -16,8 +16,16 @@ class StuffFactory extends Factory
      */
     public function definition(): array
     {
+        $fake = fake('id_ID');
+
         return [
-            //
+            'id'=> $fake->unique()->numerify('K####'),
+            'name'=> $fake->word(),
+            'price'=> $fake->numerify('###00'),
+            'unit'=> $fake->randomElement('box','ons','pcs'),
+            'status'=> $fake->randomElement(0,1),
+            'id_category'=>0,
+
         ];
     }
 }

@@ -35,7 +35,9 @@ class CategoryController extends Controller
     public function store(StorecategoryRequest $request)
     {
         Category::create($request->all());
-        return redirect('/categories');
+        return redirect('/categories')->with([
+            'pes'=>'Data sudah tersimpan',
+        ]);
     }
 
     /**
@@ -65,7 +67,9 @@ class CategoryController extends Controller
         
         $category->fill($request->all());
         $category->save();
-        return redirect('/categories');
+        return redirect('/categories')->with([
+            'pes'=>'Data sudah tersimpan',
+        ]);
     }
 
     /**
@@ -75,6 +79,8 @@ class CategoryController extends Controller
     {
 
         $category->delete();
-        return redirect('/categories');
+        return redirect('/categories')->with([
+            'pes'=>'Data sudah terhapus',
+        ]);
     }
 }

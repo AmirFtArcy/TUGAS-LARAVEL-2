@@ -31,7 +31,9 @@ class UserController extends Controller
     {
     
         User::create($request->all());
-        return redirect('/users');
+        return redirect('/users')->with([
+            'pes'=>'Data sudah tersimpan',
+        ]);
     }
 
     /**
@@ -59,7 +61,9 @@ class UserController extends Controller
     {
         $user->fill($request->all());
         $user->save();
-        return redirect('/users');
+        return redirect('/users')->with([
+            'pes'=>'Data sudah tersimpan',
+        ]);
     }
 
     /**
@@ -68,7 +72,9 @@ class UserController extends Controller
     public function destroy(user $user)
     {
         $user->delete();
-        return redirect('/users');
+        return redirect('/users')->with([
+            'pes'=>'Data sudah terhapus',
+        ]);
     }
 }
 

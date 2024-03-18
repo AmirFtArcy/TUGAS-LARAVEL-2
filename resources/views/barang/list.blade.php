@@ -26,6 +26,21 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+                        @if (session('pes'))
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <h3 class="card-title">{{ session('pes') }}</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title mx-2 my-2">Data Barang</h3>
@@ -36,10 +51,12 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Foto</th>
                                             <th>Nama</th>
-                                            <th>Unit</th>
+                                            <th>Harga</th>
+                                            <th>Satuan</th>
+                                            <th>Kategori</th>
                                             <th>Status</th>
-                                            <th>Id Categori</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -47,11 +64,14 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
+                                                <td>
+                                                    <img style= "width:150px; heigh:auto:" src="{{ $item->image }}">
+                                                </td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->price }}</td>
                                                 <td>{{ $item->unit }}</td>
-                                                <td>{{ $item->status }}</td>
-                                                <td>{{ $item->id_category }}</td>
+                                                <td>{{ $item->category->name }}</td>
+                                                <td>{{ $item->status == 1 ? 'aktif' : 'tidak' }}</td>
                                                 <td>
                                                     <a href="/stuffs/{{ $item->id }}">
                                                         <button type="button" class="btn btn-warning btn-sm"><i

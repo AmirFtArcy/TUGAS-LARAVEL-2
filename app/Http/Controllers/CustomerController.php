@@ -35,7 +35,7 @@ class CustomerController extends Controller
     {
         Customer::create($request->all());
         return redirect('/customers')->with([
-            'notif'=>'Datamu Sudah Tersimpan Bersama Dengan Kenangannya '
+            'pes'=>'Data sudah tersimpan',
         ]);
     }
 
@@ -64,7 +64,9 @@ class CustomerController extends Controller
     {
         $customer->fill($request->all());
         $customer->save();
-        return redirect('/customers');
+        return redirect('/customers')->with([
+            'pes'=>'Data sudah tersimpan',
+        ]);
     }
 
     /**
@@ -73,7 +75,9 @@ class CustomerController extends Controller
     public function destroy(customer $customer)
     {
         $customer->delete();
-        return redirect('/customers');
+        return redirect('/customers')->with([
+            'pes'=>'Data sudah dihapus',
+        ]);
        
     }
 }

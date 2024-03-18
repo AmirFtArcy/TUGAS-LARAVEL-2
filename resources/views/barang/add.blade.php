@@ -52,15 +52,27 @@
                                 <input type="text" class="form-control" name="price" placeholder="Harga"
                                     value="{{ @$data->price }}">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="status">status</label>
                                 <input type="text" class="form-control" name="status" placeholder="status"
                                     value="{{ @$data->status }}">
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="id_category">Id Categori</label>
-                                <input type="text" class="form-control" name="id_category" placeholder="Id Categori"
-                                    value="{{ @$data->id_category }}">
+                                <select name="id_category" class="custom-select rounded-0">
+                                    @foreach ($categories as $item)
+                                        <option value="{{ $item->id }}"
+                                            {{ @$data->id_category == $item->id ? 'selected' : ' ' }}>
+                                            {{ $item->name }} </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleSelectRounded0">Status</label>
+                                <select name="status" class="custom-select rounded-0">
+                                    <option value="1" {{ @$data->status == 1 ? 'selected' : '' }}>Ada</option>
+                                    <option value="2" {{ @$data->status == 1 ? 'selected' : '' }}>Tidak </option>
+                                </select>
                             </div>
                         </div>
                         <div class=" card-footer">

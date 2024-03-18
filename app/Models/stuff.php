@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relation\HasOne;
 use Illuminate\Database\Eloquent\Relation\HasMany;
+use App\Models\detail_transaction;
+use App\Models\customer;
+use App\Models\user;
+
+
 
 class stuff extends Model
 {

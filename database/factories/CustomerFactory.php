@@ -16,8 +16,15 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
+        $fake = fake('id_ID');
+
         return [
-            //
+            'id'=> $fake->unique()->numerify('C####'),
+            'name'=> $fake->name(),
+            'addres'=> $fake->addres(),
+            'gander'=> $fake->randomElement(1,2),
+            'addres'=> $fake->randomElement(0,1),
+
         ];
     }
 }
