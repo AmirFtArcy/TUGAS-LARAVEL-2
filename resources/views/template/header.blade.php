@@ -125,6 +125,13 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li> --}}
+        <li class="nav-item pb-4">
+            <a class="nav-link"  href="/logout" >
+             <button type="button" class="btn btn-primary btn-sa">
+                <i class="fas fa-sign-out-alt ">Logout Tod</i>
+             </button>
+            </a>
+        </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
