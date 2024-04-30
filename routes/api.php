@@ -16,10 +16,11 @@ use App\Http\Controllers\Apicontroller;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-    
+Route::middleware(['auth:sanctum'])->group(function(){
+
+Route::get('auth', [Apicontroller::Class,'auth']);
 });
+Route::post('login', [Apicontroller::Class,'login']);
 Route::get('/stuffs', [Apicontroller::Class,'stuffs']);
 Route::post('/stuffs', [Apicontroller::Class,'stuffAdd']);
 Route::put('/stuffs/{stuff}', [Apicontroller::Class,'stuffUdate']);
